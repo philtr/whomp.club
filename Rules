@@ -35,8 +35,9 @@ route '/blog/*.{html,md}' do
 end
 
 route '/**/*.{html,md}' do
-  if item.identifier =~ '/index.*'
-    '/index.html'
+  identifier_str = item.identifier.to_s
+  if File.basename(identifier_str, '.*') == 'index'
+    item.identifier.without_ext + '.html'
   else
     item.identifier.without_ext + '/index.html'
   end
