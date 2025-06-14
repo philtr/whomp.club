@@ -1,101 +1,92 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  font-family: Georgia, Palatino, serif;
 }
 
 body {
-  background: #fff;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:link,
-a:visited {
-  color: #f30;
-}
-
-a:hover {
-  color: #f90;
-}
-
-#main {
-  position: absolute;
-
-  top: 40px;
-  left: 280px;
-
-  width: 500px;
-}
-
-#main h1 {
-  font-size: 40px;
-  font-weight: normal;
-
-  line-height: 40px;
-
-  letter-spacing: -1px;
-}
-
-#main p {
-  margin: 20px 0;
-
-  font-size: 15px;
-
-  line-height: 20px;
-}
-
-#main ul, #main ol {
-  margin: 20px;
-}
-
-#main li {
-  font-size: 15px;
-
-  line-height: 20px;
-}
-
-#main ul li {
-  list-style-type: square;
-}
-
-#sidebar {
-  position: absolute;
-
-  top: 40px;
-  left: 20px;
-  width: 200px;
-
-  padding: 20px 20px 0 0;
-
-  border-right: 1px solid #ccc;
-
-  text-align: right;
-}
-
-#sidebar h2 {
-  text-transform: uppercase;
-
-  font-size: 13px;
-
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
   color: #333;
-
-  letter-spacing: 1px;
-
-  line-height: 20px;
+  background: #fdfdfd;
 }
 
-#sidebar ul {
-  list-style-type: none;
-
-  margin: 20px 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
 }
 
-#sidebar li {
-  font-size: 14px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr 240px;
+  grid-gap: 2rem;
+  padding: 1rem;
+}
 
-  line-height: 20px;
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+nav.sidebar-left ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav.sidebar-left li {
+  margin-bottom: 0.5rem;
+}
+
+nav.sidebar-left a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav.sidebar-left a:hover {
+  color: #0070f3;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+main h1 {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+main p {
+  margin: 1rem 0;
+}
+
+main ul,
+main ol {
+  margin: 1rem 0 1rem 1.5rem;
+}
+
+aside.sidebar-right section {
+  margin-bottom: 1.5rem;
+}
+
+aside.sidebar-right h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+aside.sidebar-right ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+aside.sidebar-right li {
+  margin-bottom: 0.25rem;
 }
