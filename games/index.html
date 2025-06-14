@@ -1,0 +1,11 @@
+---
+title: Games
+---
+
+<h1>Games</h1>
+<ul>
+<% games = @items.select { |i| i[:kind] == 'game' } %>
+<% games.each do |game| %>
+  <li><a href="<%= game.path %>"><%= game[:title] %></a></li>
+<% end %>
+</ul>
