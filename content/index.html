@@ -1,0 +1,11 @@
+---
+title: Blog
+---
+
+<h1>Blog</h1>
+<ul>
+<% posts = @items.select { |i| i[:kind] == 'post' }.sort_by { |i| i[:date] || Time.now }.reverse %>
+<% posts.each do |post| %>
+  <li><a href="<%= post.path %>"><%= post[:title] %></a></li>
+<% end %>
+</ul>

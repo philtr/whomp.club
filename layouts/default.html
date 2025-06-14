@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Whomp Club - <%= @item[:title] %></title>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Whomp Club</a></h1>
+      <nav>
+        <ul>
+          <% @config[:nav].each do |n| %>
+            <li><a href="<%= n[:link] %>"><%= n[:title] %></a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
