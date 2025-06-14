@@ -3,9 +3,17 @@ title: Blog
 ---
 
 <h1>Blog</h1>
-<ul>
 <% posts = @items.select { |i| i[:kind] == 'post' }.sort_by { |i| i[:date] || Time.now }.reverse %>
 <% posts.each do |post| %>
-  <li><a href="<%= post.path %>"><%= post[:title] %></a></li>
+  <article>
+    <h2><a href="<%= post.path %>"><%= post[:title] %></a></h2>
+    <p class="date"><%= post[:date].strftime('%B %d, %Y') %></p>
+    <% html = post.compiled_content(snapshot: :pre) %>
+    <% paragraphs = html.scan(/<p.*?<\/p>/m) %>
+    <%= paragraphs.first(6).join %>
+    <% if paragraphs.length > 6 %>
+      <p><a href="<%= post.path %>">Read more…</a></p>
+    <% end %>
+  </article>
 <% end %>
-</ul>
+
