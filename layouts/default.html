@@ -2,23 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Whomp Club - <%= @item[:title] %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet.css">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
   </head>
   <body>
-    <header>
-      <h1><a href="/">Whomp Club</a></h1>
-      <nav>
+    <div class="container">
+      <header>
+        <h1><a href="/">Whomp Club</a></h1>
+      </header>
+      <nav class="sidebar-left">
         <ul>
           <% @config[:nav].each do |n| %>
             <li><a href="<%= n[:link] %>"><%= n[:title] %></a></li>
           <% end %>
         </ul>
       </nav>
-    </header>
-    <main>
-      <%= yield %>
-    </main>
+      <main>
+        <%= yield %>
+      </main>
+      <aside class="sidebar-right">
+        <section class="recent-posts">
+          <h2>Recent Posts</h2>
+          <ul>
+            <% posts = @items.select { |i| i[:kind] == 'post' }.sort_by { |i| i[:date] || Time.now }.reverse.first(5) %>
+            <% posts.each do |post| %>
+              <li><a href="<%= post.path %>"><%= post[:title] %></a></li>
+            <% end %>
+          </ul>
+        </section>
+        <section class="tags">
+          <h2>Tags</h2>
+          <ul>
+            <li>Example</li>
+            <li>Sample</li>
+          </ul>
+        </section>
+        <section class="archives">
+          <h2>Archives</h2>
+          <ul>
+            <li>January 2025</li>
+            <li>December 2024</li>
+          </ul>
+        </section>
+        <section class="search">
+          <h2>Search</h2>
+          <input type="text" placeholder="Search…" />
+        </section>
+      </aside>
+    </div>
   </body>
 </html>
