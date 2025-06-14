@@ -4,17 +4,31 @@
   padding: 0;
 }
 
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'DM Sans', sans-serif;
+  --color-text: #374151;
+  --color-text-light: #6B7280;
+  --color-bg: #F9FAFB;
+  --color-border: #E5E7EB;
+  --color-primary: #2563EB;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
 body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fdfdfd;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
+  color: #111827;
 }
+
 
 .container {
   max-width: 1200px;
@@ -29,12 +43,14 @@ header {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 nav.sidebar-left ul {
@@ -48,11 +64,15 @@ nav.sidebar-left li {
 
 nav.sidebar-left a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-text);
+  font-weight: 600;
+  display: block;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
 }
 
 nav.sidebar-left a:hover {
-  color: #0070f3;
+  color: var(--color-primary);
 }
 
 main {
@@ -61,11 +81,12 @@ main {
 
 main h1 {
   margin-bottom: 1rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 main p {
   margin: 1rem 0;
+  color: var(--color-text);
 }
 
 main ul,
@@ -73,18 +94,41 @@ main ol {
   margin: 1rem 0 1rem 1.5rem;
 }
 
+article {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  color: var(--color-text-light);
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 aside.sidebar-right section {
   margin-bottom: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
 aside.sidebar-right h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: var(--color-text);
 }
 
 aside.sidebar-right ul {
   list-style: none;
   padding-left: 0;
+  color: var(--color-text-light);
 }
 
 aside.sidebar-right li {
