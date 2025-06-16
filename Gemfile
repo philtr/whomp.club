@@ -7,3 +7,7 @@ end
 
 gem "kramdown"
 gem "webrick"
+
+group :test, :development do
+  gem "rspec", "~> 3.12"
+end
