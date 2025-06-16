@@ -133,7 +133,7 @@ module Nanoc
           blob_entry = commit.tree.path(file_path)
           blob = repo.lookup(blob_entry[:oid])
           blob.content
-        rescue Rugged::TreeError
+        rescue Rugged::TreeError, Rugged::OdbError
           nil
         end
       end

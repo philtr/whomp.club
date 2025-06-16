@@ -308,5 +308,18 @@ RSpec.describe Nanoc::DataSources::Versioned do
         expect(temp_item.attributes[:title]).to eq('Temporary')
       end
     end
+
+    context 'with missing git objects' do
+      before do
+        repo = Rugged::Repository.new('.')
+        oid = repo.head.target.tree.first[:oid]
+        object_path = File.join(repo.path, 'objects', oid[0, 2], oid[2..])
+        FileUtils.rm_f(object_path)
+      end
+
+      it 'handles Rugged::OdbError gracefully' do
+        expect { data_source.items.to_a }.not_to raise_error
+      end
+    end
   end
 end
