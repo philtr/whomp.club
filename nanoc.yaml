@@ -1,5 +1,4 @@
-# The syntax to use for patterns in the Rules file. Can be either `"glob"`
-# (default) or `"legacy"`. The former will enable glob patterns, which behave
+# The syntax to use for patterns in the Rules file. Can be either `"glob"` (the default) or `"legacy"`. The former will enable glob patterns, which behave
 # like Ruby’s File.fnmatch. The latter will enable Nanoc 3.x-style patterns.
 string_pattern_type: glob
 
@@ -70,8 +69,8 @@ data_sources:
     layouts_root: /
     encoding: utf-8
     identifier_type: full
-  - type: filesystem
-    content_dir: games
+  - type: versioned 
+    content_dir: content/games 
     items_root: /games/
     layouts_dir: null
     layouts_root: /

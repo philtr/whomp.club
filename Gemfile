@@ -7,7 +7,9 @@ end
 
 gem "kramdown"
 gem "webrick"
+gem "rugged"
 
 group :test, :development do
   gem "rspec", "~> 3.12"
+  gem "simplecov", require: false
 end

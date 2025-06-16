@@ -18,6 +18,7 @@ GEM
     ddmetrics (1.1.0)
     ddplugin (1.0.3)
     diff-lcs (1.6.2)
+    docile (1.4.1)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -112,7 +113,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.4)
+    rugged (1.9.0)
     set (1.1.2)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov_json_formatter (0.1.4)
     slow_enumerator_tools (1.1.0)
     sorted_set (1.0.3)
       rbtree
@@ -142,6 +150,8 @@ DEPENDENCIES
   nanoc (~> 4.13)
   nanoc-live
   rspec (~> 3.12)
+  rugged
+  simplecov
   webrick
 
 BUNDLED WITH
