@@ -1,37 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Whomp Club - <%= @item[:title] %></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheet.css">
-    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheet.css" />
+    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>" />
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="headline">
         <h1><a href="/">Whomp Club</a></h1>
       </header>
       <nav class="sidebar-left">
         <ul>
           <% @config[:nav].each do |n| %>
-            <li><a href="<%= n[:link] %>"><%= n[:title] %></a></li>
+          <li><a href="<%= n[:link] %>"><%= n[:title] %></a></li>
           <% end %>
         </ul>
       </nav>
-      <main>
-        <%= yield %>
-      </main>
+      <main class="content"><%= yield %></main>
       <aside class="sidebar-right">
         <section class="recent-posts">
           <h2>Recent Posts</h2>
           <ul>
-            <% posts = @items.select { |i| i[:kind] == 'post' }.sort_by { |i| i[:date] || Time.now }.reverse.first(5) %>
-            <% posts.each do |post| %>
-              <li><a href="<%= post.path %>"><%= post[:title] %></a></li>
+            <% posts = @items.select { |i| i[:kind] == 'post' }.sort_by { |i|
+            i[:date] || Time.now }.reverse.first(5) %> <% posts.each do |post|
+            %>
+            <li><a href="<%= post.path %>"><%= post[:title] %></a></li>
             <% end %>
           </ul>
         </section>
@@ -54,6 +56,7 @@
           <input type="text" placeholder="Search…" />
         </section>
       </aside>
+      <footer class="colophon">Copyright © 2025 Phillip Ridlen</footer>
     </div>
   </body>
 </html>

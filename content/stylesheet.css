@@ -1,7 +1,9 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --lavender-floral: hsla(272, 66%, 68%, 1);
+  --pumpkin: hsla(21, 100%, 61%, 1);
+  --green-yellow: hsla(89, 91%, 66%, 1);
+  --aureolin: hsla(53, 100%, 62%, 1);
+  --moonstone: hsla(184, 79%, 41%, 1);
 }
 
 body {
@@ -11,82 +13,31 @@ body {
   background: #fdfdfd;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 800;
-}
-
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: 200px 1fr 240px;
-  grid-gap: 2rem;
-  padding: 1rem;
+  grid-template-areas:
+    "headline headline headline"
+    "navigation content sidebar"
+    ". colophon colophon";
+  grid-template-columns: 150px 1fr 150px;
+  gap: 1rem;
+
+  max-width: 100ch;
+  margin: 0 auto;
 }
 
-header {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 1rem;
+header.headline {
+  grid-area: headline;
 }
-
-header h1 {
-  font-size: 2rem;
+nav.sidebar-left {
+  grid-area: navigation;
 }
-
-nav.sidebar-left ul {
-  list-style: none;
-  padding-left: 0;
+main.content {
+  grid-area: content;
 }
-
-nav.sidebar-left li {
-  margin-bottom: 0.5rem;
+aside.sidebar-right {
+  grid-area: sidebar;
 }
-
-nav.sidebar-left a {
-  text-decoration: none;
-  color: #333;
-}
-
-nav.sidebar-left a:hover {
-  color: #0070f3;
-}
-
-main {
-  padding: 0 1rem;
-}
-
-main h1 {
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
-}
-
-main p {
-  margin: 1rem 0;
-}
-
-main ul,
-main ol {
-  margin: 1rem 0 1rem 1.5rem;
-}
-
-aside.sidebar-right section {
-  margin-bottom: 1.5rem;
-}
-
-aside.sidebar-right h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-aside.sidebar-right ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-aside.sidebar-right li {
-  margin-bottom: 0.25rem;
+footer.colophon {
+  grid-area: colophon;
 }
