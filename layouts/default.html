@@ -56,7 +56,32 @@
           <input type="text" placeholder="Search…" />
         </section>
       </aside>
-      <footer class="colophon">Copyright © 2025 Phillip Ridlen</footer>
+      <footer class="colophon">
+        Copyright © 2025 Phillip Ridlen
+        <% derived_base = @item[:base_id]
+           unless derived_base
+             id = @item.identifier.without_ext.to_s.sub(/^\//, '')
+             parts = id.split('/', 2)
+             derived_base = parts.last if parts.size > 1
+           end
+        %>
+        <% history = derived_base ? version_history(derived_base) : [] %>
+        <% if history.length > 1 %>
+        <details class="version-history">
+          <summary>Previous Versions</summary>
+          <ul>
+            <% history.reverse_each do |ver| %>
+              <% next if ver.identifier == @item.identifier %>
+              <li>
+                <a href="<%= ver.path %>">
+                  <%= short_sha(ver) %> - <%= version_date_formatted(ver) %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </details>
+        <% end %>
+      </footer>
     </div>
   </body>
 </html>
