@@ -1,4 +1,7 @@
 [build]
 command = "nanoc compile"
 publish = "output"
-environment = { RUBY_VERSION = "3.4.4", NETLIFY_USE_SHALLOW_CLONE = "false" }
+
+[build.environment]
+RUBY_VERSION = "3.4.4"
+NETLIFY_USE_SHALLOW_CLONE = "false"
