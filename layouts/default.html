@@ -60,7 +60,8 @@
         Copyright © 2025 Phillip Ridlen
         <% derived_base = @item[:base_id]
            unless derived_base
-             id = @item.identifier.without_ext.to_s.sub(/^\//, '')
+             id = @item.identifier.to_s.sub(/^\//, '')
+             id = id.sub(File.extname(id), '')
              parts = id.split('/', 2)
              derived_base = parts.last if parts.size > 1
            end
