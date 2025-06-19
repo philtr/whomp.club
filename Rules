@@ -24,6 +24,14 @@ compile '/**/*.md' do
 end
 
 compile '/**/*' do
+  case item[:extension]
+  when '.md'
+    filter :kramdown
+    layout '/default.*'
+  when '.html'
+    filter :erb
+    layout '/default.*'
+  end
 end
 
 route '/blog/*.{html,md}' do
@@ -44,7 +52,11 @@ route '/**/*.{html,md}' do
 end
 
 route '/**/*' do
-  item.identifier.to_s
+  if item[:version_sha]
+    item.identifier.to_s + '/index.html'
+  else
+    item.identifier.to_s
+  end
 end
 
 layout '/**/*', :erb
