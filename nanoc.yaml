@@ -69,13 +69,6 @@ data_sources:
     layouts_root: /
     encoding: utf-8
     identifier_type: full
-  - type: versioned 
-    content_dir: content/games 
-    items_root: /games/
-    layouts_dir: null
-    layouts_root: /
-    encoding: utf-8
-    identifier_type: full
 
 # Navigation configuration for templates
 nav:

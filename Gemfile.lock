@@ -113,7 +113,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.4)
-    rugged (1.9.0)
     set (1.1.2)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -150,7 +149,6 @@ DEPENDENCIES
   nanoc (~> 4.13)
   nanoc-live
   rspec (~> 3.12)
-  rugged
   simplecov
   webrick
 

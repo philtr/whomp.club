@@ -11,13 +11,10 @@ SimpleCov.start do
 end
 
 require 'nanoc'
-require 'rugged'
 require 'tmpdir'
 require 'fileutils'
 
-# Load our custom data source and helpers
-require_relative '../lib/nanoc/data_sources/versioned'
-require_relative '../lib/nanoc/helpers/versioned_helpers'
+require_relative '../lib/game_versioning'
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an

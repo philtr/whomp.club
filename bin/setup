@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+bundle install
+mkdir -p .git/hooks
+ln -sf ../../bin/hooks/pre-commit .git/hooks/pre-commit
