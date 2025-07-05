@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'date'
+require_relative 'lib/game_versioning'
 
 preprocess do
   @items.each do |item|
@@ -7,6 +8,8 @@ preprocess do
       item[:date] = Date.parse(m[1])
     end
   end
+
+  GameVersioning.create_index_items(@items)
 end
 
 compile '/**/*.html' do

@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+status=0
+
+git diff --cached --name-status -- content/games | while read mode file; do
+  if [[ $file =~ ^content/games/[^/]+/[0-9]{12}\.md$ ]]; then
+    if [[ $mode != A* ]]; then
+      echo "Error: game version files are immutable: $file" >&2
+      status=1
+    fi
+  fi
+done
+
+exit $status
